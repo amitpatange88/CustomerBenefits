@@ -1,0 +1,2 @@
+{"Benefit":{"BenefitName":"BHF","EffectiveDate":"Today","Description":"BHF","IsActive":"Y","Details":"BHF"},"CustomerID":"898","Benefit":{"BenefitName":"Green","EffectiveDate":"Today","Description":"Green","IsActive":"Y","Details":"Green"},"CustomerID":"898"}
+{"Benefit":{"BenefitName":"Green","EffectiveDate":"Today","Description":"Green","IsActive":"Y","Details":"Green"},"CustomerID":"898"}
