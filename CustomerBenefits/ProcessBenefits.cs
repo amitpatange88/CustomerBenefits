@@ -36,12 +36,12 @@ namespace CustomerBenefits
             return IsDone;
         }
 
-        public bool MakeNewEntry(string filePath, Customers c1)
+        public bool MakeNewEntry(string filePath, NewCustomers c1)
         {
             bool IsDone = false;
             FileUtility f1 = new FileUtility(filePath);
             NewCB n = new NewCB();
-            string customer = f1.SerializeJSONData(c1);
+            string customer = f1.SerializeJSONDataNew(c1);
 
             IsDone = f1.WriteLog(customer);
 

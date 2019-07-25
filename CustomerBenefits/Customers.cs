@@ -7,7 +7,70 @@ using System.Threading.Tasks;
 
 namespace CustomerBenefits
 {
+    public class NewCustomers
+    {
+        [JsonProperty("Customers")]
+        public Benefits[] Benefits { get; set; }
+    }
+
+    public class NewBenefits
+    {
+        [JsonProperty("Benefit")]
+        public string Benefit { get; set; }
+
+        [JsonProperty("EffectiveDate")]
+        public string EffectiveDate { get; set; }
+
+        [JsonProperty("Details")]
+        public string Details { get; set; }
+
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+
+        [JsonProperty("IsActive")]
+        public string IsActive { get; set; }
+    }
+
     public class Customers
+    {
+        public Customers() { }
+
+        [JsonProperty("CustomerID")]
+        public string CustomerID { get; set; }
+
+        public Benefits Benefit = new Benefits();
+    }
+
+    public class Benefits
+    {
+        public string BenefitName { get; set; }
+
+        public string EffectiveDate { get; set; }
+
+        public string Description { get; set; }
+
+        public string IsActive { get; set; }
+
+        public string Details { get; set; }
+    }
+}
+
+/*
+ * 
+ * 
+ * 
+ * 
+ {
+    "Customers": [
+        {"Benefit":"Green", "EffectiveDate":"Today", "Details":"Green", "Description":"Green", "IsActive":"Y"},
+        {"Benefit":"WHD", "EffectiveDate":"Today", "Details":"Green", "Description":"Green", "IsActive":"Y"},
+        {"Benefit":"BHF", "EffectiveDate":"Today", "Details":"Green", "Description":"Green", "IsActive":"Y"},
+    ]
+}
+ * 
+ * 
+ * 
+ * public class Customers
     {
         public Customers() { }
 
@@ -29,9 +92,8 @@ namespace CustomerBenefits
 
         public  string Details { get; set; }
     }
-}
 
-/*
+
  {
     "Customers": {
         "123": [

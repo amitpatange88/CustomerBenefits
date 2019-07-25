@@ -13,7 +13,8 @@ namespace CustomerBenefits
     public partial class NewCB : Form
     {
         private List<string> _Benefits = new List<string>() { "Green", "WHD", "ICE", "BHF" }; //"Green","WHD","ICE", "BHF"
-        public Customers BenefitConstant;
+
+        private List<string> CustBenefits = new List<string>() { "Green", "WHD" };
 
         private static int CustomerBenefitStatus = 0;  //0 = No Benefit yet.
 
@@ -24,7 +25,20 @@ namespace CustomerBenefits
 
         private void NewCB_Load(object sender, EventArgs e)
         {
-            
+            int i = 1;
+            foreach(var val in CustBenefits)
+            {
+                //insert rows into datagrid.
+                dgCustomerBenefit.Rows.Add(false, i, val, "Today", string.Empty);
+                i++;
+            }
+
+            foreach (var val in CustBenefits)
+            {
+                dgCustomerBenefit.Rows.Add(false, i, val, "Today", val);
+                i++;
+            }
+
 
             //ByDefault
             DisableControls();
@@ -50,24 +64,8 @@ namespace CustomerBenefits
             {
                 //process
 
-                //list.ForEach(s =>
-                //{
-                //    if (remove.Contains(s))
-                //    {
-                //        list.Remove(s);
-                //    }
-                //});
+                
             }
-
-            //List<string> remove = new List<string>() { "2" };
-
-            //list.ForEach(s =>
-            //{
-            //    if (remove.Contains(s))
-            //    {
-            //        list.Remove(s);
-            //    }
-            //});
         }
 
         private void DisableControls()
@@ -112,7 +110,7 @@ namespace CustomerBenefits
 
         private void btnNEWSave_Click(object sender, EventArgs e)
         {
-            BenefitConstant = GetBenefitsAction();
+            NewCustomers BenefitConstant = GetBenefitsAction();
             ProcessBenefits p = new ProcessBenefits();
             p.MakeNewEntry("C:\\E\\Annu-VS\\CustomerBenefits\\CustomerBenefits\\NewCustomerDB.txt", BenefitConstant);
             cmbNEWBENEFITCOLL.Items.RemoveAt(cmbNEWBENEFITCOLL.SelectedIndex);
@@ -125,7 +123,10 @@ namespace CustomerBenefits
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            foreach (DataGridViewRow row in dgCustomerBenefit.SelectedRows)
+            {
+                dgCustomerBenefit.Rows.RemoveAt(row.Index);
+            }
         }
 
         private void cmbNEWBENEFITCOLL_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,15 +147,14 @@ namespace CustomerBenefits
            
         }
 
-        public Customers GetBenefitsAction()
+        public NewCustomers GetBenefitsAction()
         {
-            Customers c1 = new Customers();
-            c1.CustomerID = "898";
-            c1.Benefit.BenefitName = cmbNEWBENEFITCOLL.SelectedItem.ToString();
-            c1.Benefit.EffectiveDate = "Today";
-            c1.Benefit.Description = cmbNEWBENEFITCOLL.SelectedItem.ToString();
-            c1.Benefit.IsActive = "Y";
-            c1.Benefit.Details = cmbNEWBENEFITCOLL.SelectedItem.ToString();
+            NewCustomers c1 = new NewCustomers();
+            c1.Benefits[0].BenefitName = cmbNEWBENEFITCOLL.SelectedItem.ToString();
+            c1.Benefits[0].EffectiveDate = "Today";
+            c1.Benefits[0].Description = cmbNEWBENEFITCOLL.SelectedItem.ToString();
+            c1.Benefits[0].IsActive = "Y";
+            c1.Benefits[0].Details = cmbNEWBENEFITCOLL.SelectedItem.ToString();
 
             return c1;
 

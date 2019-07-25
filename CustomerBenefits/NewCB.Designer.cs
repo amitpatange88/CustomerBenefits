@@ -38,13 +38,14 @@
             this.btnNEWSave = new System.Windows.Forms.Button();
             this.btnNEWRemove = new System.Windows.Forms.Button();
             this.dgCustomerBenefit = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BenefitInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EffectiveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBack = new System.Windows.Forms.Button();
             this.txtICENumber = new System.Windows.Forms.TextBox();
             this.lblICE = new System.Windows.Forms.Label();
+            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BenefitInformation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EffectiveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Details = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgCustomerBenefit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,6 +145,7 @@
             this.dgCustomerBenefit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCustomerBenefit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select,
+            this.No,
             this.BenefitInformation,
             this.EffectiveDate,
             this.Details});
@@ -151,37 +153,9 @@
             this.dgCustomerBenefit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgCustomerBenefit.Name = "dgCustomerBenefit";
             this.dgCustomerBenefit.RowTemplate.Height = 28;
-            this.dgCustomerBenefit.Size = new System.Drawing.Size(796, 251);
+            this.dgCustomerBenefit.Size = new System.Drawing.Size(895, 251);
             this.dgCustomerBenefit.TabIndex = 8;
             this.dgCustomerBenefit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            // 
-            // BenefitInformation
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BenefitInformation.DefaultCellStyle = dataGridViewCellStyle1;
-            this.BenefitInformation.HeaderText = "Benefit Information";
-            this.BenefitInformation.Name = "BenefitInformation";
-            this.BenefitInformation.ReadOnly = true;
-            this.BenefitInformation.Width = 300;
-            // 
-            // EffectiveDate
-            // 
-            this.EffectiveDate.HeaderText = "Effective Date";
-            this.EffectiveDate.Name = "EffectiveDate";
-            this.EffectiveDate.ReadOnly = true;
-            this.EffectiveDate.Width = 200;
-            // 
-            // Details
-            // 
-            this.Details.HeaderText = "Details";
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.Width = 150;
             // 
             // btnBack
             // 
@@ -211,11 +185,44 @@
             this.lblICE.TabIndex = 10;
             this.lblICE.Text = "ICE Number";
             // 
+            // Select
+            // 
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            // 
+            // No
+            // 
+            this.No.HeaderText = "Number";
+            this.No.Name = "No";
+            // 
+            // BenefitInformation
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BenefitInformation.DefaultCellStyle = dataGridViewCellStyle1;
+            this.BenefitInformation.HeaderText = "Benefit Information";
+            this.BenefitInformation.Name = "BenefitInformation";
+            this.BenefitInformation.ReadOnly = true;
+            this.BenefitInformation.Width = 300;
+            // 
+            // EffectiveDate
+            // 
+            this.EffectiveDate.HeaderText = "Effective Date";
+            this.EffectiveDate.Name = "EffectiveDate";
+            this.EffectiveDate.ReadOnly = true;
+            this.EffectiveDate.Width = 200;
+            // 
+            // Details
+            // 
+            this.Details.HeaderText = "Details";
+            this.Details.Name = "Details";
+            this.Details.ReadOnly = true;
+            this.Details.Width = 150;
+            // 
             // NewCB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 953);
+            this.ClientSize = new System.Drawing.Size(965, 959);
             this.Controls.Add(this.txtICENumber);
             this.Controls.Add(this.lblICE);
             this.Controls.Add(this.btnBack);
@@ -250,12 +257,13 @@
         private System.Windows.Forms.Button btnNEWSave;
         private System.Windows.Forms.Button btnNEWRemove;
         private System.Windows.Forms.DataGridView dgCustomerBenefit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BenefitInformation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EffectiveDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Details;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtICENumber;
         private System.Windows.Forms.Label lblICE;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BenefitInformation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EffectiveDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Details;
     }
 }

@@ -101,6 +101,19 @@ namespace CustomerBenefits
             return response;
         }
 
+        public string SerializeJSONDataNew(NewCustomers e)
+        {
+            Newtonsoft.Json.JsonSerializerSettings jss = new Newtonsoft.Json.JsonSerializerSettings();
+
+            Newtonsoft.Json.Serialization.DefaultContractResolver dcr = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+            dcr.DefaultMembersSearchFlags |= System.Reflection.BindingFlags.NonPublic;
+            jss.ContractResolver = dcr;
+
+            var response = Newtonsoft.Json.JsonConvert.SerializeObject(e, jss);
+
+            return response;
+        }
+
         /// <summary>
         /// Serialize the JSON data. Using with Default contract resolver for non public fields.
         /// </summary>

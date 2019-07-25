@@ -92,6 +92,9 @@ namespace CustomerBenefits
 
             Customers c1 = f1.DeserializeJSONData<Customers>(textFile);
 
+            var collectionObj = "asd";
+            var temp = collectionObj;
+
             if(c1 != null)
             {
                 CustStatus = 1;
