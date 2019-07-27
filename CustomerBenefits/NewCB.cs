@@ -16,11 +16,23 @@ namespace CustomerBenefits
 
         private List<string> CustBenefits = new List<string>() { "Green", "WHD" };
 
+
+        private List<string> MasterBenefitsList = new List<string>() { "Green", "WHD", "ICE", "BHF" };
+
+        private List<string> CustBenefitsList = new List<string>() { "Green", "BHF" };
+
         private static int CustomerBenefitStatus = 0;  //0 = No Benefit yet.
 
         public NewCB()
         {
             InitializeComponent();
+        }
+
+        public List<string> RemoveListFromAnother()
+        {
+            List<string> result = MasterBenefitsList.Except(CustBenefitsList).ToList();
+
+            return result;
         }
 
         private void NewCB_Load(object sender, EventArgs e)
@@ -43,8 +55,10 @@ namespace CustomerBenefits
             //ByDefault
             DisableControls();
 
+            List<string> availableBenefits = RemoveListFromAnother();
+
             //load the combo box values
-            LoadComboBoxValuesInitially();
+            LoadComboBoxValuesInitially(availableBenefits);
 
 
             //Load Combo Box Customer Wise.
@@ -78,10 +92,10 @@ namespace CustomerBenefits
             txtNEWDate.Enabled = false;
         }
 
-        private void LoadComboBoxValuesInitially()
+        private void LoadComboBoxValuesInitially(List<string> availableBenefits)
         {
             int i = 0;
-            foreach(var val in _Benefits)
+            foreach(var val in availableBenefits) //MasterBenefitsList
             {
                 cmbNEWBENEFITCOLL.Items.Insert(i, val);
                 i++;
