@@ -14,20 +14,23 @@ namespace CustomerBenefits
     {
         private List<string> _Benefits = new List<string>() { "Green", "WHD", "ICE", "BHF" }; //"Green","WHD","ICE", "BHF"
 
-        private List<string> CustBenefits = new List<string>() { "Green", "WHD" };
+        private List<string> CustBenefits = new List<string>() { "Green", "WHD", "" };
 
 
+        //Master benefits are maintained here.
         private List<string> MasterBenefitsList = new List<string>() { "Green", "WHD", "ICE", "BHF" };
 
         private List<string> CustBenefitsList = new List<string>() { "Green", "BHF" };
-
-        private static int CustomerBenefitStatus = 0;  //0 = No Benefit yet.
 
         public NewCB()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Remove one list from another.
+        /// </summary>
+        /// <returns></returns>
         public List<string> RemoveListFromAnother()
         {
             List<string> result = MasterBenefitsList.Except(CustBenefitsList).ToList();
